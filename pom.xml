@@ -74,22 +74,24 @@
     <dependency>
         <groupId>com.baomidou</groupId>
         <artifactId>mybatis-plus-boot-starter</artifactId>
-        <version>3.5.3</version>
+        <version>3.4.3.4</version>
     </dependency>
 
-    <!-- MyBatis -->
+    <!-- 移除可能冲突的 MyBatis 依赖 -->
+    <!--
     <dependency>
         <groupId>org.mybatis.spring.boot</groupId>
         <artifactId>mybatis-spring-boot-starter</artifactId>
         <version>2.2.2</version>
     </dependency>
-
-    <!-- 如果有单独的 MyBatis 依赖，也需要确保版本兼容 -->
+    
     <dependency>
         <groupId>org.mybatis</groupId>
         <artifactId>mybatis</artifactId>
         <version>3.5.9</version>
     </dependency>
+    -->
+
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
