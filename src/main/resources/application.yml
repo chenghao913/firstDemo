@@ -31,7 +31,7 @@ mybatis-plus:
 
 wx:
   miniapp:
-    appid: ${WX_MINIAPP_APPID:你的小程序appid}
-    secret: ${WX_MINIAPP_SECRET:你的小程序secret}
-    env: ${WX_MINIAPP_ENV:你的云环境ID}
+    appid: ${WX_MINIAPP_APPID}
+    secret: ${WX_MINIAPP_SECRET}
+    env: ${WX_MINIAPP_ENV}
     msgDataFormat: JSON
