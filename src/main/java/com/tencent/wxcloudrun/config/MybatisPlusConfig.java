@@ -12,7 +12,6 @@ import org.springframework.context.annotation.Configuration;
 import java.time.LocalDateTime;
 
 @Configuration
-@MapperScan("com.tencent.wxcloudrun.dao")
 public class MybatisPlusConfig {
 
     /**
