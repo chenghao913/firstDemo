@@ -13,5 +13,25 @@ spring:
       suffix: .html
       prefix: /
 
-mybatis:
-  mapper-locations: classpath*:mapper/*Mapper.xml
+#mybatis:
+#  mapper-locations: classpath*:mapper/*Mapper.xml
+
+mybatis-plus:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl  # 开启SQL日志
+    map-underscore-to-camel-case: true  # 开启驼峰命名
+  global-config:
+    db-config:
+      logic-delete-field: isDeleted  # 全局逻辑删除字段
+      logic-delete-value: 1          # 逻辑已删除值
+      logic-not-delete-value: 0      # 逻辑未删除值
+  mapper-locations: classpath*:/mapper/**/*.xml  # mapper XML文件位置
+  type-aliases-package: com.tencent..wxcloudrun.entity      # 实体类包路径
+
+
+wx:
+  miniapp:
+    appid: ${WX_MINIAPP_APPID:你的小程序appid}
+    secret: ${WX_MINIAPP_SECRET:你的小程序secret}
+    env: ${WX_MINIAPP_ENV:你的云环境ID}
+    msgDataFormat: JSON
