@@ -12,7 +12,9 @@ spring:
     view:
       suffix: .html
       prefix: /
-
+  security:
+    basic:
+      enabled: false
 #mybatis:
 #  mapper-locations: classpath*:mapper/*Mapper.xml
 
@@ -34,9 +36,12 @@ wx:
     appid: ${WX_MINIAPP_APPID}
     secret: ${WX_MINIAPP_SECRET}
     env: ${WX_MINIAPP_ENV}
+    token: ${WX_TOKEN}
+    aesKey: ${WX_AES_KEY}
     msgDataFormat: JSON
 
 logging:
   level:
     com.tencent.wxcloudrun: debug
     com.baomidou.mybatisplus: debug
+
