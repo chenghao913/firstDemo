@@ -9,6 +9,7 @@ import com.tencent.wxcloudrun.model.ImageVO;
 import com.tencent.wxcloudrun.service.ImageService;
 import com.tencent.wxcloudrun.util.BusinessException;
 import com.tencent.wxcloudrun.util.Result;
+import com.tencent.wxcloudrun.util.SecurityUtils;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -47,12 +48,9 @@ public class ImageController {
      * 分页搜索图片
      */
     @GetMapping("/search")
-    public Result<IPage<ImageVO>> search(ImageSearchDTO searchDTO,
-                                         @RequestParam(defaultValue = "1") long current,
-                                         @RequestParam(defaultValue = "10") long size) {
+    public Result<List<ImageVO>> search(String keyword) {
         try {
-            Page<Image> page = new Page<>(current, size);
-            IPage<ImageVO> result = imageService.searchImages(searchDTO, page);
+            List<ImageVO> result = imageService.searchByKeyword(keyword);
             return Result.success(result);
         } catch (BusinessException e) {
             log.error("搜索图片失败: {}", e.getMessage());
@@ -126,7 +124,7 @@ public class ImageController {
         try {
             Page<Image> page = new Page<>(current, size);
             ImageSearchDTO searchDTO = new ImageSearchDTO();
-//            searchDTO.setSubmitter(SecurityUtils.getCurrentOpenid());
+            searchDTO.setSubmitter(SecurityUtils.getCurrentOpenid());
             searchDTO.setSubmitter("admin");
             IPage<ImageVO> result = imageService.searchImages(searchDTO, page);
             return Result.success(result);
