@@ -48,7 +48,7 @@ public class ImageController {
      * 分页搜索图片
      */
     @GetMapping("/search")
-    public Result<List<ImageVO>> search(String keyword) {
+    public Result<List<ImageVO>> search(@RequestParam String keyword) {
         try {
             List<ImageVO> result = imageService.searchByKeyword(keyword);
             return Result.success(result);
