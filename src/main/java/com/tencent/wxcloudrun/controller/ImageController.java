@@ -75,8 +75,8 @@ public class ImageController {
     /**
      * 获取图片详情
      */
-    @GetMapping("/{id}")
-    public Result<ImageVO> getDetail(@PathVariable Long id) {
+    @GetMapping("/detail")
+    public Result<ImageVO> getDetail(@RequestParam Long id) {
         try {
             ImageVO image = imageService.getImageDetail(id);
             return Result.success(image);
