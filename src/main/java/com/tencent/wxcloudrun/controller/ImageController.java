@@ -90,7 +90,7 @@ public class ImageController {
     /**
      * 删除单张图片
      */
-    @PostMapping("/delete/{id}")  // 改为 POST 请求
+//    @PostMapping("/delete/{id}")  // 改为 POST 请求
     public Result<Void> delete(@PathVariable Long id) {
         try {
             imageService.deleteImage(id);
@@ -104,7 +104,7 @@ public class ImageController {
     /**
      * 批量删除图片
      */
-    @PostMapping("/batch/delete")  // 改为 POST 请求
+//    @PostMapping("/batch/delete")  // 改为 POST 请求
     public Result<Void> batchDelete(@RequestBody @NotEmpty(message = "图片ID列表不能为空") List<Long> ids) {
         try {
             imageService.batchDeleteImages(ids);

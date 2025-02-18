@@ -13,6 +13,7 @@ import com.tencent.wxcloudrun.model.ImageVO;
 import com.tencent.wxcloudrun.service.ImageService;
 import com.tencent.wxcloudrun.service.WxCloudService;
 import com.tencent.wxcloudrun.util.BusinessException;
+import com.tencent.wxcloudrun.util.SecurityUtils;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
@@ -40,8 +41,7 @@ public class ImageServiceImpl extends ServiceImpl<ImageMapper, Image> implements
     @Transactional(rollbackFor = Exception.class)
     public void uploadImage(ImageUploadRequest request) {
         // 1. 获取当前用户
-//        String openid = SecurityUtils.getCurrentOpenid();
-        String openid = "";
+        String openid = SecurityUtils.getCurrentOpenid();
         if (openid == null) {
             throw new BusinessException("用户未登录");
         }
@@ -107,8 +107,8 @@ public class ImageServiceImpl extends ServiceImpl<ImageMapper, Image> implements
     @Transactional(rollbackFor = Exception.class)
     public void deleteImage(Long id) {
         // 1. 获取当前用户
-//        String openid = SecurityUtils.getCurrentOpenid();
-        String openid = "";
+        String openid = SecurityUtils.getCurrentOpenid();
+//        String openid = "";
         if (openid == null) {
             throw new BusinessException("用户未登录");
         }
@@ -148,8 +148,8 @@ public class ImageServiceImpl extends ServiceImpl<ImageMapper, Image> implements
             return;
         }
 
-//        String openid = SecurityUtils.getCurrentOpenid();
-        String openid = "";
+        String openid = SecurityUtils.getCurrentOpenid();
+//        String openid = "";
         if (openid == null) {
             throw new BusinessException("用户未登录");
         }
